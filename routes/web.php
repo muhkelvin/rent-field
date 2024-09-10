@@ -5,6 +5,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerFieldController;
 use App\Http\Controllers\OwnerFieldController;
+use App\Http\Controllers\OwnerPaymentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
@@ -44,4 +45,10 @@ Route::middleware(['auth', 'role:owner'])->group(function () {
     Route::get('/owner/bookings/{booking}', [BookingController::class, 'show'])->name('owner.bookings.show');
 
     Route::get('/owner/reports', [ReportController::class, 'index'])->name('owner.reports.index');
+
+    // Existing route for index
+    Route::get('/owner/transactions', [OwnerPaymentController::class, 'index'])->name('owner.transactions.index');
+
+// Route for updating payment status
+    Route::put('/owner/transactions/{payment}', [OwnerPaymentController::class, 'update'])->name('owner.transactions.update');
 });

@@ -19,21 +19,21 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Membuat 10 pengguna
-        User::factory()->count(10)->create();
+//        User::factory()->count(10)->create();
 
         // Membuat 5 kategori lapangan
         FieldCategory::factory()->count(5)->create();
 
         // Membuat 10 lapangan, setiap lapangan dihubungkan ke kategori secara acak
-        Field::factory(10)->create()->each(function ($field) {
-            // Membuat ketersediaan waktu untuk setiap lapangan
-            foreach (['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as $day) {
-                FieldAvailability::factory()->create([
-                    'field_id' => $field->id,
-                    'day_of_week' => $day,
-                ]);
-            }
-        });
+//        Field::factory(10)->create()->each(function ($field) {
+//            // Membuat ketersediaan waktu untuk setiap lapangan
+//            foreach (['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'] as $day) {
+//                FieldAvailability::factory()->create([
+//                    'field_id' => $field->id,
+//                    'day_of_week' => $day,
+//                ]);
+//            }
+//        });
 
         // Membuat 20 booking
 //        Booking::factory()->count(20)->create();

@@ -63,7 +63,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/home'); // Sesuaikan dengan halaman setelah logout
+        return redirect('/login'); // Sesuaikan dengan halaman setelah logout
     }
 
     public function showResetForm()
